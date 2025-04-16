@@ -24,6 +24,7 @@ model User {
   refferalCode String?
   createdAt    DateTime      @default(now())
   updatedAt    DateTime?     @default(now())
+  Event        Event[]
   Ticket       Ticket[]
   Coupon       Coupon[]
   Transaction  Transaction[]
@@ -32,6 +33,7 @@ model User {
 
 model Event {
   id              Int           @id @default(autoincrement())
+  user_id         Int
   title           String
   price           Int
   start_date      DateTime
@@ -39,6 +41,7 @@ model Event {
   available_seats Int
   location        String
   category        String
+  user            User          @relation(fields: [user_id], references: [id])
   createdAt       DateTime      @default(now())
   updatedAt       DateTime?     @default(now())
   Ticket          Ticket[]
