@@ -3,3 +3,11 @@ export interface UserPayload {
     name: string,
     role: "CUSTOMER" | "EVENT_ORGANIZER"
 }
+
+export interface UserRegister {
+    name: string,
+    email: string,
+    password: string,
+    role : 'CUSTOMER' | 'EVENT_ORGANIZER',
+    refferalCode? : string
+}
