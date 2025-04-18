@@ -80,8 +80,7 @@ model Coupon {
   id          Int           @id @default(autoincrement())
   user_id     Int
   code        String        @unique
-  discount    Int
-  source      Source
+  points      Int
   user        User          @relation(fields: [user_id], references: [id])
   createdAt   DateTime      @default(now())
   updatedAt   DateTime?     @default(now())
@@ -121,11 +120,6 @@ model Review {
 enum Role {
   CUSTOMER
   EVENT_ORGANIZER
-}
-
-enum Source {
-  SYSTEM
-  REFERRAL
 }
 
 enum Status {

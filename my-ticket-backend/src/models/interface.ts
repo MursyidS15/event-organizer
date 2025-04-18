@@ -11,3 +11,22 @@ export interface UserRegister {
     role : 'CUSTOMER' | 'EVENT_ORGANIZER',
     refferalCode? : string
 }
+
+export interface EventInput {
+    title: string,
+    price: number,
+    start_date: Date,
+    end_date: Date,
+    available_seats: number,
+    location: string,
+    category: string,
+    user_id: number
+}
+
+export interface EventQuery {
+    search?: string,
+    location?: string,
+    category?: string,
+    page?: number,
+    limit?: number
+}
