@@ -20,7 +20,7 @@ export interface EventInput {
     available_seats: number,
     location: string,
     category: string,
-    user_id: number
+    userId: number
 }
 
 export interface EventQuery {

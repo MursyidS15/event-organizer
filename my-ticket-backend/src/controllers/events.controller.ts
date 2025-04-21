@@ -11,7 +11,13 @@ export class EventController {
 
   public async create(req: Request, res: Response): Promise<void> {
     try {
-      const data: EventInput = req.body;
+      const user = (req as any).user;
+      const data: EventInput = {
+        ...req.body,
+        userId: user.id
+      };
+      console.log('Data yang dikirimkan ke Prisma:', data);
+      
       const result = await this.eventService.create(data);
       res.status(201).json({
         message: "Event created successfully",

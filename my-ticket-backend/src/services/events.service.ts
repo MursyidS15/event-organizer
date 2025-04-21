@@ -24,7 +24,7 @@ export class EventService {
         where.category = category
     }
 
-    return prisma.user.findMany({
+    return prisma.event.findMany({
         where,
         skip: (page - 1) * limit,
         take: limit
@@ -32,10 +32,10 @@ export class EventService {
   }
 
   async update(id: number, data: Partial<EventInput>) {
-    return prisma.user.update({ where: { id }, data: {...data, updatedAt: new Date()} })
+    return prisma.event.update({ where: { id }, data: {...data, updatedAt: new Date()} })
   }
 
   async delete(id: number) {
-    return prisma.user.delete({ where: { id } })
+    return prisma.event.delete({ where: { id } })
   }
 }
